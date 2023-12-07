@@ -1,13 +1,12 @@
+%option noyywrap
+
 %{
-#include "exp_parser.h"
-
-#include <stdio.h>
+    /*
+     *  一个简单计算器的Lex词法文件
+     */
+	void yyerror(char*);
+	#include "calc.tab.h"
 %}
-
-%option outfile="./exp_lexer.c" header-file="./exp_lexer.h"
-%option warn nodefault
-%option reentrant noyywrap never-interactive nounistd
-%option bison-bridge
 
 %%
 
@@ -30,6 +29,6 @@
 [ \t]    ;
 
     /* 其他字符都是非法的 */
-.    { fprintf(stderr, "\033[31mERROR\033[0m: Unrecognized symbol: \033[34m%s\033[0m\n", yytext); exit(1); }
+.    yyerror("invalid input");
 
 %%
