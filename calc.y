@@ -12,7 +12,9 @@
 
 %%
 program:
-    statement '\n' statement '\n';
+    program statement '\n'
+    |
+    ;
 statement:
      expr    {printf("%d\n", $1);}
      |VARIABLE '=' expr    {sym[$1] = $3;}
