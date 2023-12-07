@@ -17,7 +17,7 @@ extern "C"
 {
 #endif
 
-  int *getAST (const char *input);
+  int getAST (const char *input);
 
 #ifdef	__cplusplus
 }

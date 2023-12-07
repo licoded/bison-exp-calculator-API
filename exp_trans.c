@@ -10,8 +10,7 @@
 
 #include <stdlib.h>
 
-int *
-getAST (const char *input)
+int getAST (const char *input)
 {
   int formula;
   yyscan_t scanner;

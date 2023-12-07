@@ -1,10 +1,13 @@
 all: clean calc
 
+CC	    =   g++
 
-calc: calc.l calc.y
+parser: calc.l calc.y
 	bison -d calc.y
 	flex calc.l
-	# cc -o $@ calc.tab.c lex.yy.c -lm
+
+test-bison: parser test-bison.cpp
+	$(CC) -o $@ test-bison.cpp exp_lexer.c exp_parser.c exp_trans.c -lm
 
 clean:
 	rm -f \

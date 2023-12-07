@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "exp_trans.h": "c"
+        "exp_trans.h": "c",
+        "exp_parser.h": "c",
+        "exp_lexer.h": "c"
     }
 }

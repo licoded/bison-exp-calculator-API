@@ -352,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg , yyscan_t yyscanner );
 	yyg->yy_hold_char = *yy_cp; \
 	*yy_cp = '\0'; \
 	yyg->yy_c_buf_p = yy_cp;
-#define YY_NUM_RULES 6
-#define YY_END_OF_BUFFER 7
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -361,10 +361,9 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[12] =
+static const flex_int16_t yy_accept[11] =
     {   0,
-        0,    0,    7,    5,    4,    3,    3,    2,    1,    2,
-        0
+        0,    0,    6,    4,    3,    2,    2,    1,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -378,11 +377,11 @@ static const YY_CHAR yy_ec[256] =
         4,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
 
-        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
-        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
-        6,    6,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -399,33 +398,33 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[7] =
+static const YY_CHAR yy_meta[6] =
     {   0,
-        1,    1,    1,    1,    2,    1
+        1,    1,    1,    1,    2
     } ;
 
-static const flex_int16_t yy_base[13] =
+static const flex_int16_t yy_base[12] =
     {   0,
-        0,    0,    8,    9,    9,    9,    9,    0,    9,    0,
-        9,    5
+        0,    0,    7,    8,    8,    8,    8,    0,    0,    8,
+        4
     } ;
 
-static const flex_int16_t yy_def[13] =
+static const flex_int16_t yy_def[12] =
     {   0,
-       11,    1,   11,   11,   11,   11,   11,   12,   11,   12,
-        0,   11
+       10,    1,   10,   10,   10,   10,   10,   11,   11,    0,
+       10
     } ;
 
-static const flex_int16_t yy_nxt[16] =
+static const flex_int16_t yy_nxt[14] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,   11,    3,   11,
-       11,   11,   11,   11,   11
+        4,    5,    6,    7,    8,    9,   10,    3,   10,   10,
+       10,   10,   10
     } ;
 
-static const flex_int16_t yy_chk[16] =
+static const flex_int16_t yy_chk[14] =
     {   0,
-        1,    1,    1,    1,    1,    1,   12,    3,   11,   11,
-       11,   11,   11,   11,   11
+        1,    1,    1,    1,    1,   11,    3,   10,   10,   10,
+       10,   10,   10
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -440,9 +439,9 @@ static const flex_int16_t yy_chk[16] =
 #include "exp_parser.h"
 
 #include <stdio.h>
-#line 443 "./exp_lexer.c"
+#line 442 "./exp_lexer.c"
 #define YY_NO_UNISTD_H 1
-#line 445 "./exp_lexer.c"
+#line 444 "./exp_lexer.c"
 
 #define INITIAL 0
 
@@ -720,8 +719,8 @@ YY_DECL
 
 
 #line 15 "calc.l"
-     /* a-z为变量 */   
-#line 724 "./exp_lexer.c"
+    /* 整数 */
+#line 723 "./exp_lexer.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -748,13 +747,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 12 )
+				if ( yy_current_state >= 11 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_current_state != 11 );
+		while ( yy_current_state != 10 );
 		yy_cp = yyg->yy_last_accepting_cpos;
 		yy_current_state = yyg->yy_last_accepting_state;
 
@@ -778,44 +777,35 @@ case 1:
 YY_RULE_SETUP
 #line 16 "calc.l"
 {
-            yylval = *yytext - 'a';
-            return VARIABLE;
-    	}
-	YY_BREAK
-/* 整数 */
-case 2:
-YY_RULE_SETUP
-#line 22 "calc.l"
-{
-            yylval = atoi(yytext);
+            yylval->ival = atoi(yytext);
             return INTEGER;
     	}
 	YY_BREAK
 /* 运算符 */
-case 3:
-/* rule 3 can match eol */
+case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 28 "calc.l"
+#line 22 "calc.l"
 {return *yytext;}
 	YY_BREAK
 /* 空白被忽略 */
-case 4:
+case 3:
 YY_RULE_SETUP
-#line 31 "calc.l"
+#line 25 "calc.l"
 ;
 	YY_BREAK
 /* 其他字符都是非法的 */
-case 5:
+case 4:
 YY_RULE_SETUP
-#line 34 "calc.l"
+#line 28 "calc.l"
 { fprintf(stderr, "\033[31mERROR\033[0m: Unrecognized symbol: \033[34m%s\033[0m\n", yytext); exit(1); }
 	YY_BREAK
-case 6:
+case 5:
 YY_RULE_SETUP
-#line 36 "calc.l"
+#line 30 "calc.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 818 "./exp_lexer.c"
+#line 808 "./exp_lexer.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1115,7 +1105,7 @@ static int yy_get_next_buffer (yyscan_t yyscanner)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 12 )
+			if ( yy_current_state >= 11 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1144,11 +1134,11 @@ static int yy_get_next_buffer (yyscan_t yyscanner)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 12 )
+		if ( yy_current_state >= 11 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 11);
+	yy_is_jam = (yy_current_state == 10);
 
 	(void)yyg;
 	return yy_is_jam ? 0 : yy_current_state;
@@ -1997,5 +1987,5 @@ void yyfree (void * ptr , yyscan_t yyscanner)
 
 #define YYTABLES_NAME "yytables"
 
-#line 36 "calc.l"
+#line 30 "calc.l"
 

@@ -45,7 +45,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 12 "calc.y"
+#line 8 "calc.y"
 
 #ifndef YY_TYPEDEF_YY_SCANNER_T
 #define YY_TYPEDEF_YY_SCANNER_T
@@ -63,8 +63,7 @@ typedef void* yyscan_t;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    INTEGER = 258,                 /* INTEGER  */
-    VARIABLE = 259                 /* VARIABLE  */
+    INTEGER = 258                  /* INTEGER  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -73,9 +72,10 @@ typedef void* yyscan_t;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 28 "calc.y"
+#line 24 "calc.y"
 
-	int formula;
+    int formula;
+    int ival;
 
 #line 81 "./exp_parser.h"
 
@@ -88,7 +88,7 @@ typedef union YYSTYPE YYSTYPE;
 
 
 
-int yyparse (int formula, yyscan_t scanner);
+int yyparse (int *formula, yyscan_t scanner);
 
 
 #endif /* !YY_YY_EXP_PARSER_H_INCLUDED  */

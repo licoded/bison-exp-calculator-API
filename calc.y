@@ -1,12 +1,8 @@
-%token    INTEGER VARIABLE
-%left    '+' '-'
-%left    '*' '/'
-
 %{
-	#include <stdio.h>   
-    void yyerror(char *formula, yyscan_t scanner, const char *msg);
-	
-    int sym[26];
+#include "exp_parser.h"
+#include "exp_lexer.h" 
+
+void yyerror(int *formula, yyscan_t scanner, const char *msg);
 %}
 
 %code requires {
@@ -21,22 +17,26 @@ typedef void* yyscan_t;
  
 %define api.pure
 %lex-param   { yyscan_t scanner }
-%parse-param { int formula }
+%parse-param { int *formula }
 %parse-param { yyscan_t scanner }
 
 
 %union {
-	int formula;
+    int formula;
+    int ival;
 }
 
 %type <formula> expr
-%type <formula> INTEGER
+
+%token    <ival> INTEGER
+%left    '+' '-'
+%left    '*' '/'
 
 %%
 program:
     statement;
 statement:
-     expr    {formula = $1; printf("%d\n", $1);}
+     expr    {*formula = $1; printf("%d\n", $1);}
      ;
 expr:
     INTEGER {$$ = $1;}
@@ -48,6 +48,6 @@ expr:
     ;
 %%
 
-void yyerror(char *formula, yyscan_t scanner, const char *msg) {
+void yyerror(int *formula, yyscan_t scanner, const char *msg) {
 	fprintf (stderr, "\033[31mERROR\033[0m: %s\n", msg);
 }

@@ -11,15 +11,9 @@
 
 %%
 
-     /* a-z为变量 */   
-[a-z]	{
-            yylval = *yytext - 'a';
-            return VARIABLE;
-    	}
-
     /* 整数 */
 [0-9]+	{
-            yylval = atoi(yytext);
+            yylval->ival = atoi(yytext);
             return INTEGER;
     	}
 
